@@ -10,7 +10,7 @@
     <!-- Normalize browser styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="app.css" rel="stylesheet">
-    <!-- Link to app.js with defer till HTML render -->
+    <!-- Link to app.js with defer to ensure script loads after HTML -->
     <script defer src="app.js"></script>
 </head>
 <body>
@@ -23,26 +23,24 @@
     <form id="dino-compare">
         <div class="form-container">
             <p>Name:</p>
-            <input id="name" class="form-field__full" type="text" name="name">
+            <input id="name" class="form-field__full" type="text" name="name" required>
             <p>Height</p>
-            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet"></label>
-            <label>inches: <input id="inches" class="form-field__short" type="number" name="inches"></label>
+            <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet" min="0" required></label>
+            <label>Inches: <input id="inches" class="form-field__short" type="number" name="inches" min="0" max="11" required></label>
             <p>Weight:</p>
-            <label><input id="weight" class="form-field__full" type="number" name="weight">lbs</label>
+            <label><input id="weight" class="form-field__full" type="number" name="weight" min="1" required>lbs</label>
             <p>Diet:</p>
-            <select id="diet" class="form-field__full" name="diet">
-                <option>Herbavor</option>
-                <option>Omnivor</option>
-                <option>Carnivor</option>
+            <select id="diet" class="form-field__full" name="diet" required>
+                <option value="herbavor">Herbavor</option>
+                <option value="omnivor">Omnivor</option>
+                <option value="carnivor">Carnivor</option>
             </select>
-            <!-- Update the button to an input type for form submission -->
             <input type="button" id="btn" value="Compare Me!">
         </div>
     </form>
-    <!-- .grid to attach tiles to -->
+    <!-- Grid to display infographic tiles -->
     <main id="grid"></main>
     <footer>
-        <!-- Include information source -->
         <p class="fine-print">Data Sourced from <a href="https://www.wikipedia.org/">Wikipedia.org</a>, all numbers are approximations.</p>
     </footer>
 </body>

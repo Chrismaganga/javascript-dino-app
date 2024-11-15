@@ -60,6 +60,7 @@ function createHumanTile(humanData) {
         <div class="tile">
             <h3>${humanData.name}</h3>
             <img src="images/human.png" alt="Human">
+            <p>You are ${humanData.height} inches tall, weigh ${humanData.weight} lbs, and have a ${humanData.diet} diet.</p>
         </div>
     `;
 }
@@ -69,7 +70,7 @@ function generateFacts(dino, human) {
         `The ${dino.species} was ${dino.weight} lbs, compared to you at ${human.weight} lbs.`,
         `The ${dino.species} was ${dino.height} inches tall, compared to you at ${human.height} inches.`,
         `The ${dino.species} was a ${dino.diet}, while you are a ${human.diet}.`,
-        `The ${dino.species} lived during the ${dino.period}.`,
+        `The ${dino.species} lived during the ${dino.when}.`,
         `The ${dino.species} was found in ${dino.where}.`,
         "All birds are considered dinosaurs."
     ];
@@ -79,3 +80,21 @@ function displayTiles(tiles) {
     const grid = document.getElementById('grid');
     grid.innerHTML = tiles.join('');
 }
+
+// Persist generated infographic until refresh
+window.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('dino-compare');
+    const grid = document.getElementById('grid');
+
+    // Check local storage for existing data
+    const existingTiles = localStorage.getItem('dinoGrid');
+    if (existingTiles) {
+        form.style.display = 'none';
+        grid.innerHTML = existingTiles;
+    }
+
+    // Save the tiles to local storage upon generation
+    document.getElementById('btn').addEventListener('click', () => {
+        localStorage.setItem('dinoGrid', grid.innerHTML);
+    });
+});

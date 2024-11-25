@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dinographic</title>
     <!-- Include Google fonts: Frijole, Open Sans, Oswald -->
     <link href="https://fonts.googleapis.com/css?family=Frijole|Open+Sans|Oswald&display=swap" rel="stylesheet">
@@ -23,14 +22,14 @@
     <form id="dino-compare">
         <div class="form-container">
             <p>Name:</p>
-            <input id="name" class="form-field__full" type="text" name="name" required>
+            <input id="name" class="form-field__full" type="text" name="name" title="Enter your name" placeholder="Enter your name" required>
             <p>Height</p>
             <label>Feet: <input id="feet" class="form-field__short" type="number" name="feet" min="0" required></label>
             <label>Inches: <input id="inches" class="form-field__short" type="number" name="inches" min="0" max="11" required></label>
             <p>Weight:</p>
             <label><input id="weight" class="form-field__full" type="number" name="weight" min="1" required>lbs</label>
             <p>Diet:</p>
-            <select id="diet" class="form-field__full" name="diet" required>
+            <select id="diet" class="form-field__full" name="diet" title="Select your diet" required>
                 <option value="herbavor">Herbavor</option>
                 <option value="omnivor">Omnivor</option>
                 <option value="carnivor">Carnivor</option>
@@ -45,4 +44,5 @@
     </footer>
 </body>
 </html>
- 
+<script>
+
